@@ -56,10 +56,10 @@ class Hangman():
         guess = guess.lower()
         if guess in self.word:
             print(f"Good guess! {guess} is in the word.")
-            for letter in self.word:
+            for i, letter in enumerate(self.word):
                 if guess == letter:
-                    self.word_guessed[self.word.find(letter)] = letter
-                    print(self.word_guessed)
+                    self.word_guessed[i] = letter
+            print(self.word_guessed)
             self.num_letters = self.num_letters - 1
         else:
             self.num_lives = self.num_lives - 1
