@@ -56,13 +56,13 @@ class Hangman():
             print(f"Good guess! {guess} is in the word.")
             for letter in self.word:
                 if letter == guess:
-                    self.word_guessed[letter].replace("_", letter)
-            num_letters -= 1
+                    self.word_guessed[guess].replace("_", letter)
+            self.num_letters = self.num_letters - 1
         else:
-            num_lives -= 1
+            self.num_lives = self.num_lives - 1
             print(f"Sorry, {guess} is not in the word. Try again.")
-            print(f"You have {num_lives} lives left")
-
+            print(f"You have {self.num_lives} lives left")
+            
     def ask_for_input(self):
         '''
         This function asks the user for a guess and validates the response.
@@ -89,7 +89,7 @@ def play_game(word_list):
         elif num_letters == 0:
             return "Congratulations! You won the game."
         else:
-            return game.ask_for_input()
+            game.ask_for_input()
 
 if __name__ == '__main__':
     fruits_list = ["Apple", "Banana", "Cherry", "Dragon fruit", "Pear"]
