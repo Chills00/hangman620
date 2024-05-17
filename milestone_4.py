@@ -74,6 +74,8 @@ class Hangman():
                     word_guessed[letter].replace("-", letter)
             num_letters -= 1
         else:
+            num_lives -= 1
             print(f"Sorry, {guess} is not in the word. Try again.")
+            print(f"You have {num_lives} lives left")
 
 
