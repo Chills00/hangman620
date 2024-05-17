@@ -36,13 +36,14 @@ class Hangman():
     '''
     
     def __init__(self, word_list, num_lives=5):
-        self.word = random.choice(word_list)
+        self.word = random.choice(word_list).lower()
         self.word_guessed = ["_" for i in self.word]
         self.num_letters = len(self.word)
         self.num_lives = num_lives
-        self.word_list = word_list
+        self.word_list = [i.lower() for i in word_list]
         self.list_of_guesses = []
         print(self.word)    # Need to remove
+        print(self.word_list)   # Need to remove
         print(f"The mystery word has {self.num_letters} characters")
         print(f"Letters guessed so far are: {self.word_guessed}")
        
