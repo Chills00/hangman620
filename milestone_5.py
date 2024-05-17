@@ -44,6 +44,7 @@ class Hangman():
         self.list_of_guesses = []
         print(self.word)    # Need to remove
         print(self.word_list)   # Need to remove
+        print(self.num_letters) # Need to remove
         print(f"The mystery word has {self.num_letters} characters")
         print(f"Letters guessed so far are: {self.word_guessed}")
        
@@ -59,12 +60,15 @@ class Hangman():
             for i, letter in enumerate(self.word):
                 if guess == letter:
                     self.word_guessed[i] = letter
-            print(self.word_guessed)
-            self.num_letters = self.num_letters - 1
+                    self.num_letters = self.num_letters - 1
+            print(self.word_guessed)    # Need to remove
+            print(self.num_letters)     # Need to remove
+            
         else:
             self.num_lives = self.num_lives - 1
             print(f"Sorry, {guess} is not in the word. Try again.")
             print(f"You have {self.num_lives} lives left")
+        
             
     def ask_for_input(self):
         '''
@@ -87,10 +91,12 @@ def play_game(word_list):
     num_letters = None
     game = Hangman(word_list, num_lives)
     while True:
-        if num_lives == 0:
+        if game.num_lives == 0:
             print("You lost!")
-        elif num_letters == 0:
+            return None
+        elif game.num_letters == 0:
             print("Congratulations! You won the game.")
+            return None
         else:
             game.ask_for_input()
 
