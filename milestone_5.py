@@ -42,6 +42,7 @@ class Hangman():
         self.num_lives = num_lives
         self.word_list = word_list
         self.list_of_guesses = []
+        print(self.word)    # Need to remove
         print(f"The mystery word has {self.num_letters} characters")
         print(f"Letters guessed so far are: {self.word_guessed}")
        
@@ -55,9 +56,9 @@ class Hangman():
         if guess in self.word:
             print(f"Good guess! {guess} is in the word.")
             for letter in self.word:
-                if letter == guess:
-                    self.word_guessed = [letter for letter in self.word_guessed]
-                    #self.word_guessed[guess].replace("_", letter)
+                if guess == letter:
+                    self.word_guessed[self.word.find(letter)] = letter
+                    print(self.word_guessed)
             self.num_letters = self.num_letters - 1
         else:
             self.num_lives = self.num_lives - 1
