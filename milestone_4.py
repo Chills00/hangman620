@@ -39,8 +39,8 @@ class Hangman():
     
     def __init__(self, word_list, num_lives=5):
         self.word = random.choice(word_list)
-        self.word_guessed = []
-        self.num_letters = None
+        self.word_guessed = ["_" for i in self.word]
+        self.num_letters = len(self.word)
         self.num_lives = num_lives
         self.word_list = word_list
         self.list_of_guesses = []
@@ -69,6 +69,11 @@ class Hangman():
         guess = guess.lower()
         if guess in word:
             print(f"Good guess! {guess} is in the word.")
+            for letter in word:
+                if letter == guess:
+                    word_guessed[letter].replace("-", letter)
+            num_letters -= 1
         else:
             print(f"Sorry, {guess} is not in the word. Try again.")
+
 
