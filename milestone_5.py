@@ -62,7 +62,7 @@ class Hangman():
                     self.word_guessed[i] = letter
                     self.num_letters = self.num_letters - 1
             print(self.word_guessed)    # Need to remove
-            print(self.num_letters)     # Need to remove
+            print(f"The mystery word has {self.num_letters} characters remaining")
             
         else:
             self.num_lives = self.num_lives - 1
@@ -101,5 +101,5 @@ def play_game(word_list):
             game.ask_for_input()
 
 if __name__ == '__main__':
-    fruits_list = ["Apple", "Banana", "Cherry", "Dragon fruit", "Pear"]
+    fruits_list = ["Apple", "Banana", "Cherry", "Melon", "Pear"]
     play_game(fruits_list)
