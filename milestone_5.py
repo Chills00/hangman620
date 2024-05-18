@@ -42,9 +42,6 @@ class Hangman():
         self.num_lives = num_lives
         self.word_list = [i.lower() for i in word_list]
         self.list_of_guesses = []
-        print(self.word)    # Need to remove
-        print(self.word_list)   # Need to remove
-        print(self.num_letters) # Need to remove
         print(f"The mystery word has {self.num_letters} characters")
         print(f"The mystery word is: {self.word_guessed}")
        
