@@ -46,7 +46,7 @@ class Hangman():
         print(self.word_list)   # Need to remove
         print(self.num_letters) # Need to remove
         print(f"The mystery word has {self.num_letters} characters")
-        print(f"Letters guessed so far are: {self.word_guessed}")
+        print(f"The mystery word is: {self.word_guessed}")
        
 
     def check_guess(self, guess):
@@ -60,14 +60,15 @@ class Hangman():
             for i, letter in enumerate(self.word):
                 if guess == letter:
                     self.word_guessed[i] = letter
-                    self.num_letters = self.num_letters - 1
-            print(self.word_guessed)    # Need to remove
-            print(f"The mystery word has {self.num_letters} characters remaining")
-            
+                    self.num_letters = self.num_letters - 1          
         else:
             self.num_lives = self.num_lives - 1
             print(f"Sorry, {guess} is not in the word. Try again.")
             print(f"You have {self.num_lives} lives left")
+        print("--------------------------------------------------")
+        print(f"Letters guessed so far are: {self.list_of_guesses}")
+        print(f"The mystery word has {self.num_letters} characters remaining")
+        print(f"The mystery word is: {self.word_guessed}")
         
             
     def ask_for_input(self):
