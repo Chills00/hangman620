@@ -24,14 +24,14 @@ class Hangman():
         The number of UNIQUE letters in the word that have not been guessed yet
     num_lives: int
         The number of lives the player has
-    list_letters: list
+    list_of_guesses: list
         A list of the letters that have already been tried
 
     Methods:
     -------
-    check_letter(letter)
+    check_guess(guess)
         Checks if the letter is in the word.
-    ask_letter()
+    ask_for_input()
         Asks the user for a letter.
     '''
     
@@ -48,7 +48,13 @@ class Hangman():
 
     def check_guess(self, guess):
         '''
-        This function checks whether the guess is in the word.
+        This method checks whether the guess is in the word.
+
+        If the guess is in the word it replaces the "_" in the word_guessed list with the letter guessed.
+        If it is not, it reduces the number of lives by 1.
+
+        Parameters:
+            guess (str): The letter to be checked.
         '''
         # Check whether the guess is in the word.
         guess = guess.lower()
@@ -70,7 +76,10 @@ class Hangman():
             
     def ask_for_input(self):
         '''
-        This function asks the user for a guess and validates the response.
+        This method asks the user for a guess and validates the response. It checks two things:
+        1. If the character is a single character.
+        2. If the letter has already been tried.
+        If it passes both checks, it calls the check_guesses method. 
         '''
         # Iteratively check if the input is a valid guess. 
         while True:
@@ -85,6 +94,12 @@ class Hangman():
                 return self.check_guess(guess)
 
 def play_game(word_list):
+    '''
+    This function creates an attribute for the Hangman class and checks two things:
+    1. Whether num_lives is equal to zero.
+    2. Whether num_letters is equal to zero.
+    If neither check is equal to zero it calls the game.ask_for_input function.
+    '''
     num_lives = 5
     num_letters = None
     game = Hangman(word_list, num_lives)
