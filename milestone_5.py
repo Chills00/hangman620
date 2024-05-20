@@ -85,10 +85,9 @@ class Hangman():
         while True:
             guess = input("Please enter a single letter character:")
             if not guess.isalpha() or len(guess) != 1:
-                return input("Invalid letter. Please, enter a single alphabetical character.")
+                print("Invalid letter. Please, enter a single alphabetical character.")
             elif guess in self.list_of_guesses:
                 print("You already tried that letter")
-                return input("Please enter a single letter character:")
             else:
                 self.list_of_guesses.append(guess)
                 return self.check_guess(guess)
@@ -99,6 +98,9 @@ def play_game(word_list):
     1. Whether num_lives is equal to zero.
     2. Whether num_letters is equal to zero.
     If neither check is equal to zero it calls the game.ask_for_input function.
+
+    Parameters:
+        word_list (list): List of words to be used in the game.
     '''
     num_lives = 5
     num_letters = None
@@ -114,5 +116,6 @@ def play_game(word_list):
             game.ask_for_input()
 
 if __name__ == '__main__':
-    fruits_list = ["Apple", "Banana", "Cherry", "Melon", "Pear"]
+    fruits_list = ["Apple", "Banana", "Cherry", "Melon", "Pear", "Mango", "Blackberry", "Orange",
+                   "Papaya", "Plum", "Fig", "Lime", "Raspberry", "Blackcurrant"]
     play_game(fruits_list)
