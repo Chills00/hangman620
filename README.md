@@ -8,10 +8,12 @@ Hangman is a classic game in which a player thinks of a word and the other playe
 1. Licence Information
 
 ## Description
-This is an implementation of the Hangman game, where the computer thinks of a word and the user tries to guess it. 
+This is an implementation of the [Hangman](https://en.wikipedia.org/wiki/Hangman_(game)) game, where the computer thinks of a word and the user tries to guess it. How to play this game? In this game you have to figure out a mystery word by guessing one letter at a time. However, with each incorrect guess you lose a life, and get one step closer to death! The goal is to successfully guess the word before the man is hanged. 
+
+The project started as a goal to learn Python and version control systems. In this simplified version of the game the computer randomly selects a word from a list of fruits and the user guesses letters one by one. Everytime an incorrect guess is made the user loses a life. If 5 lives are lost the user has lost the game. If there are no hidden letters the user has successfully won the game. 
 
 ### Usage Instructions
-1. In the Command Line execute the command "python milestone_5.py"
+1. Run "python milestone_5.py"
 1. The output will read:
     - "The mystery word has *num* characters." where *num* is the number of letters in the word.
     - "The mystery word is: [ '_' * num]."
